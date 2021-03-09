@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyTech">
         <activity android:name=".TechAbout"></activity>
+        <activity android:name=".TechDetail"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

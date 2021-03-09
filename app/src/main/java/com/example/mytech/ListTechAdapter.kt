@@ -15,13 +15,10 @@ class ListTechAdapter(private val listTech: ArrayList<Tech>) :
 
     private lateinit var onItemClickCallback: OnItemClickCallback
 
-    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback){
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
         this.onItemClickCallback = onItemClickCallback
+    }
 
-    }
-    interface OnItemClickCallback {
-        fun onItemClicked(data: Tech)
-    }
 
     inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var tvName: TextView = itemView.findViewById(R.id.tv_item_name)
@@ -31,7 +28,8 @@ class ListTechAdapter(private val listTech: ArrayList<Tech>) :
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ListViewHolder {
-        val view: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_row_tech, viewGroup,false)
+        val view: View =
+            LayoutInflater.from(viewGroup.context).inflate(R.layout.item_row_tech, viewGroup, false)
         return ListViewHolder(view)
     }
 
@@ -40,19 +38,23 @@ class ListTechAdapter(private val listTech: ArrayList<Tech>) :
 
         Glide.with(holder.itemView.context)
             .load(Tech.photo)
-            .apply(RequestOptions().override(55,55))
+            .apply(RequestOptions().override(55, 55))
             .into(holder.imgPhoto)
 
         holder.tvName.text = Tech.name
         holder.tvPrice.text = Tech.price
         holder.tvDetail.text = Tech.detail
 
-        holder.itemView.setOnClickListener{ onItemClickCallback.onItemClicked(listTech[holder.adapterPosition])}
+        holder.itemView.setOnClickListener { onItemClickCallback.onItemClicked(listTech[holder.adapterPosition]) }
 
     }
 
     override fun getItemCount(): Int {
         return listTech.size
+    }
+
+    interface OnItemClickCallback {
+        fun onItemClicked(data: Tech)
     }
 
 

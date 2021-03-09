@@ -5,8 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.concurrent.schedule
 
 class MainActivity : AppCompatActivity() {
     private lateinit var rvTechs: RecyclerView
@@ -31,13 +35,33 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
-        return true
+        return super.onCreateOptionsMenu(menu)
     }
 
     private fun showTechsList() {
         rvTechs.layoutManager = LinearLayoutManager(this)
         val listTechAdapter = ListTechAdapter(list)
         rvTechs.adapter = listTechAdapter
+
+        listTechAdapter.setOnItemClickCallback(object : ListTechAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: Tech) {
+                showSelectedTech(data)
+            }
+        })
+    }
+
+    private fun showSelectedTech(tech: Tech) {
+        Toast.makeText(this, "You've choosen : " + tech.name, Toast.LENGTH_SHORT).show()
+        Timer().schedule(1000){
+            val move = Intent(this@MainActivity, TechDetail::class.java)
+            move.putExtra(TechDetail.name, tech.name)
+            move.putExtra(TechDetail.detail, tech.detail)
+            move.putExtra(TechDetail.photo, tech.photo)
+            move.putExtra(TechDetail.price, tech.price)
+            move.putExtra(TechDetail.titledetail, "Detail Tech")
+            startActivity(move)
+        }
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -54,7 +78,6 @@ class MainActivity : AppCompatActivity() {
                 move.putExtra(TechAbout.EXTRA_BAR, "About")
                 startActivity(move)
             }
-
         }
         setActionBarTitle(title)
     }
