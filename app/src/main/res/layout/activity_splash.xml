@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    tools:context=".SplashActivity">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        android:layout_width="330dp"
+        android:layout_height="330dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="118dp"
+        android:tooltipText="@string/app_name"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="false"
+        app:lottie_rawRes="@raw/computer"
+        app:lottie_speed="1" />
+
+    <TextView
+        android:layout_width="267dp"
+        android:layout_height="146dp"
+        android:layout_below="@+id/animationView"
+        android:layout_alignStart="@+id/animationView"
+        android:layout_alignEnd="@+id/animationView"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="-40dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="128dp"
+        android:gravity="center"
+        android:text="@string/splashdetail"
+        android:textSize="18dp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:layout_width="267dp"
+        android:layout_height="146dp"
+        android:layout_below="@+id/animationView"
+        android:layout_alignStart="@+id/animationView"
+        android:layout_alignEnd="@+id/animationView"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-76dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="166dp"
+        android:gravity="center"
+        android:text="@string/splashMyTech"
+        android:textColor="@color/teal_200"
+        android:textSize="35dp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>

@@ -9,6 +9,7 @@ class TechAbout : AppCompatActivity() {
         const val EXTRA_NAME = "extra_name"
         const val EXTRA_EMAIL = "extra_email"
         const val EXTRA_BAR = "extra_bar"
+        const val EXTRA_CAMPUS = "extra_campus"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,13 +19,16 @@ class TechAbout : AppCompatActivity() {
         //data being received
         val nameReceiver: TextView = findViewById(R.id.nama)
         val emailReceiver: TextView = findViewById(R.id.email)
+        val campusReceiver: TextView = findViewById(R.id.campus)
 
         val name = intent.getStringExtra(EXTRA_NAME)
         val email = intent.getStringExtra(EXTRA_EMAIL)
         val title = intent.getStringExtra(EXTRA_BAR)
+        val campus = intent.getStringExtra(EXTRA_CAMPUS)
 
         nameReceiver.text = name
         emailReceiver.text = email
+        campusReceiver.text = campus
         if (title != null) {
             setActionBarTitle(title)
         }

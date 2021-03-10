@@ -3,4 +3,9 @@
     <string name="harga">Harga :</string>
     <string name="spesifikasi">Spesifikasi :</string>
     <string name="detail">Spesifikasi :</string>
+    <string name="garansi">Garansi :</string>
+    <string name="splashMyTech">My Tech</string>
+    <string name="splashdetail">Your computer solution</string>
+    <string name="motivasi">\"no matter how hard it will be. keep it going\"</string>
+
 </resources>
